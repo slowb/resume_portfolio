@@ -1196,7 +1196,7 @@
   <div class="hero-meta">
     <span>Portfolio · 2026</span>
     <span>·</span>
-    <span>AI Solution Architect</span>
+    <span>Solution Architect</span>
     <span>·</span>
     <span>PM Strategy Director</span>
   </div>
@@ -1206,7 +1206,7 @@
   </h1>
 
   <p class="hero-sub">
-    <span class="hero-sub-line">LLM·Vector DB·STT/TTS를 실제 매출과 운영에 접목해 온 20년 10개월.</span><br>
+    <span class="hero-sub-line">LLM·Vector DB·STT/TTS를 실제 매출과 운영에 접목해 온 경험과 역량.</span><br>
     <span class="hero-sub-cite">챗와인(네이버 클라우드 AI 파트너), 현대차 Sales Support App(STT·TA·TTS), Anchors AICC 지식베이스 데모까지</span><br>
     <span class="hero-sub-line">생성형 AI를 <strong style="color:var(--text);font-weight:500;">"동작하는 시스템"</strong>으로 만들어 온 아키텍트입니다.</span>
   </p>
@@ -1215,17 +1215,17 @@
     <div class="ai-quick-label">
       <span class="ai-quick-dot"></span>
       AI Live Demos
-      <span class="ai-quick-sub">— Anchors 지식베이스 데모 · 대외 영업 및 일반 고객사 제안용</span>
+      <span class="ai-quick-sub">— Anchors 지식베이스 데모 · 대외 영업 및 일반 고객사 제안용 (AI로 직접 제작)</span>
     </div>
     <div class="ai-quick-grid">
       <a href="https://anchors-aicc-user.vercel.app" target="_blank" rel="noopener" class="ai-quick-card">
         <div class="ai-quick-card-cat">AICC · User</div>
-        <div class="ai-quick-card-title">사용자 데모 (상담톡 기반)</div>
+        <div class="ai-quick-card-title">사용자 데모</div>
         <div class="ai-quick-card-arrow">↗</div>
       </a>
       <a href="https://anchors-aicc-admin.vercel.app" target="_blank" rel="noopener" class="ai-quick-card">
         <div class="ai-quick-card-cat">AICC · Admin</div>
-        <div class="ai-quick-card-title">관리자 데모 (AWS 기반)</div>
+        <div class="ai-quick-card-title">관리자 데모</div>
         <div class="ai-quick-card-arrow">↗</div>
       </a>
       <a href="https://anchors-aicc-architecture.vercel.app" target="_blank" rel="noopener" class="ai-quick-card">
@@ -1333,7 +1333,7 @@
       <div class="stat-label">AI Services Built</div>
     </div>
     <div class="stat">
-      <div class="stat-num">20<span class="unit">년 10개월</span></div>
+      <div class="stat-num">21<span class="unit">년 06개월</span></div>
       <div class="stat-label">Total Career</div>
     </div>
     <div class="stat">
@@ -1709,7 +1709,7 @@
     <a href="https://anchors-aicc-user.vercel.app" target="_blank" rel="noopener" class="demo reveal">
       <div class="demo-arrow"><svg viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 8 L8 2 M8 2 L4 2 M8 2 L8 6" stroke-width="1.2" stroke-linecap="round"/></svg></div>
       <div class="demo-cat">AICC · User</div>
-      <div class="demo-title">사용자 데모 (상담톡 기반)</div>
+      <div class="demo-title">사용자 데모</div>
       <div class="demo-desc">대외 영업 및 일반 고객사 제안용 AI 상담 데모. CI 및 시나리오 범용화 완료.</div>
       <div class="demo-url">anchors-aicc-user.vercel.app</div>
     </a>
@@ -1717,7 +1717,7 @@
     <a href="https://anchors-aicc-admin.vercel.app" target="_blank" rel="noopener" class="demo reveal">
       <div class="demo-arrow"><svg viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 8 L8 2 M8 2 L4 2 M8 2 L8 6" stroke-width="1.2" stroke-linecap="round"/></svg></div>
       <div class="demo-cat">AICC · Admin</div>
-      <div class="demo-title">관리자 데모 (AWS 기반)</div>
+      <div class="demo-title">관리자 데모</div>
       <div class="demo-desc">AWS 기반 운영·관리 백오피스. 시나리오·플로우·지식 데이터 관리 인터페이스.</div>
       <div class="demo-url">anchors-aicc-admin.vercel.app</div>
     </a>
@@ -1914,84 +1914,7 @@
 </footer>
 
 <script>
-  // Scroll-triggered reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('in'), i * 60);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // Subtle parallax on hero (gentle — keeps content visible)
-  const hero = document.querySelector('.hero');
-  window.addEventListener('scroll', () => {
-    const s = window.scrollY;
-    if (s < window.innerHeight && hero) {
-      hero.style.transform = `translateY(${s * 0.08}px)`;
-    }
-  }, { passive: true });
-
-  // Insert line breaks after sentence-ending periods in prose blocks
-  // Targets: long-form narrative blocks only. Excludes labels, meta, tags, monospace.
-  const proseSelectors = [
-    '.hero-sub',
-    '.about-quote',
-    '.about-text p',
-    '.tl-desc',
-    '.proj-desc',
-    '.demo-desc',
-    '.ai-hero-lead',
-    '.ai-pillar-desc',
-    '.projects-intro',
-    '.philo-quote',
-    '.philo-content p',
-    '.section-title.wider'
-  ];
-  // Match a period that ends a sentence:
-  //   - followed by whitespace + (Korean | uppercase ASCII | lowercase ASCII | digit | quote | paren)
-  //   - the key is that there MUST be whitespace before the next character
-  // We do NOT match: .NET, Node.js, v1.4, etc. (no whitespace between period and following char)
-  const sentenceEndRegex = /\.(\s+)(?=[가-힣A-Za-z0-9"'(※])/g;
-  const finalPeriodRegex = /\.(\s*)$/;
-
-  proseSelectors.forEach(sel => {
-    document.querySelectorAll(sel).forEach(el => {
-      // Walk text nodes to preserve inline tags (<span>, <strong>, etc.)
-      const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
-      const nodes = [];
-      let n;
-      while ((n = walker.nextNode())) nodes.push(n);
-
-      nodes.forEach(textNode => {
-        const original = textNode.nodeValue;
-        if (!/\./.test(original)) return;
-        // Skip if no sentence-ending period
-        if (!sentenceEndRegex.test(original) && !finalPeriodRegex.test(original)) {
-          sentenceEndRegex.lastIndex = 0;
-          return;
-        }
-        sentenceEndRegex.lastIndex = 0;
-
-        // Build replacement with <br> after sentence-ending periods
-        const replaced = original.replace(sentenceEndRegex, '.<br>');
-
-        // Replace text node with HTML using a fragment
-        const wrapper = document.createElement('span');
-        wrapper.innerHTML = replaced;
-        textNode.parentNode.replaceChild(wrapper, textNode);
-        // Unwrap span to keep DOM clean (move children up)
-        while (wrapper.firstChild) {
-          wrapper.parentNode.insertBefore(wrapper.firstChild, wrapper);
-        }
-        wrapper.parentNode.removeChild(wrapper);
-      });
-    });
-  });
-
+const _0x14b87a=_0x4e3f,_0x9cb459=_0x4e3f;function _0x4e3f(_0x576572,_0x209137){_0x576572=_0x576572-0x134;const _0x27ce9e=_0x27ce();let _0x4e3f45=_0x27ce9e[_0x576572];if(_0x4e3f['rCSqfC']===undefined){var _0x3294b8=function(_0x4f2e56){const _0x1f457b='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x53b737='',_0x5e8aa7='';for(let _0x49cb8=0x0,_0x3fc746,_0xb4480b,_0x4303dc=0x0;_0xb4480b=_0x4f2e56['charAt'](_0x4303dc++);~_0xb4480b&&(_0x3fc746=_0x49cb8%0x4?_0x3fc746*0x40+_0xb4480b:_0xb4480b,_0x49cb8++%0x4)?_0x53b737+=String['fromCharCode'](0xff&_0x3fc746>>(-0x2*_0x49cb8&0x6)):0x0){_0xb4480b=_0x1f457b['indexOf'](_0xb4480b);}for(let _0x1d9396=0x0,_0x3c377a=_0x53b737['length'];_0x1d9396<_0x3c377a;_0x1d9396++){_0x5e8aa7+='%'+('00'+_0x53b737['charCodeAt'](_0x1d9396)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x5e8aa7);};_0x4e3f['ICvqok']=_0x3294b8,_0x4e3f['ldPsLR']={},_0x4e3f['rCSqfC']=!![];}const _0x492b75=_0x27ce9e[0x0],_0x867808=_0x576572+_0x492b75,_0x5caa9d=_0x4e3f['ldPsLR'][_0x867808];return!_0x5caa9d?(_0x4e3f45=_0x4e3f['ICvqok'](_0x4e3f45),_0x4e3f['ldPsLR'][_0x867808]=_0x4e3f45):_0x4e3f45=_0x5caa9d,_0x4e3f45;}(function(_0x99af50,_0x2397e4){const _0x4d3879=_0x4e3f,_0x320f53=_0x4e3f,_0x46dd24=_0x99af50();while(!![]){try{const _0x3c9816=parseInt(_0x4d3879(0x137))/0x1*(-parseInt(_0x4d3879(0x143))/0x2)+-parseInt(_0x320f53(0x135))/0x3*(-parseInt(_0x4d3879(0x15d))/0x4)+parseInt(_0x4d3879(0x148))/0x5+-parseInt(_0x320f53(0x145))/0x6*(parseInt(_0x4d3879(0x138))/0x7)+-parseInt(_0x320f53(0x140))/0x8*(-parseInt(_0x320f53(0x13d))/0x9)+-parseInt(_0x4d3879(0x177))/0xa*(parseInt(_0x320f53(0x178))/0xb)+parseInt(_0x320f53(0x155))/0xc*(-parseInt(_0x4d3879(0x15b))/0xd);if(_0x3c9816===_0x2397e4)break;else _0x46dd24['push'](_0x46dd24['shift']());}catch(_0x250745){_0x46dd24['push'](_0x46dd24['shift']());}}}(_0x27ce,0xe186a));const observer=new IntersectionObserver(_0x53b737=>{const _0x386ea4=_0x4e3f;_0x53b737[_0x386ea4(0x15e)]((_0x5e8aa7,_0x49cb8)=>{const _0x5ea8ae=_0x386ea4,_0x4a404b=_0x386ea4;_0x5e8aa7[_0x5ea8ae(0x151)+_0x4a404b(0x154)]&&(setTimeout(()=>_0x5e8aa7[_0x4a404b(0x165)][_0x4a404b(0x16e)+'t'][_0x5ea8ae(0x166)]('in'),_0x49cb8*0x3c),observer['unobserv'+'e'](_0x5e8aa7[_0x5ea8ae(0x165)]));});},{'threshold':0.12,'rootMargin':_0x14b87a(0x13f)+_0x9cb459(0x147)+'x'});document[_0x14b87a(0x17a)+_0x9cb459(0x167)](_0x14b87a(0x152))[_0x9cb459(0x15e)](_0x3fc746=>observer[_0x14b87a(0x16f)](_0x3fc746));const hero=document[_0x14b87a(0x17a)+_0x14b87a(0x179)](_0x14b87a(0x164));window[_0x9cb459(0x153)+_0x14b87a(0x14e)]('scroll',()=>{const _0x53d4aa=_0x9cb459,_0x59a347=_0x9cb459,_0xb4480b=window[_0x53d4aa(0x14f)];_0xb4480b<window['innerHei'+_0x59a347(0x13c)]&&hero&&(hero[_0x53d4aa(0x134)][_0x53d4aa(0x14c)+'m']='translat'+_0x59a347(0x156)+_0xb4480b*0.08+_0x53d4aa(0x158));},{'passive':!![]});const proseSelectors=[_0x14b87a(0x142)+'b',_0x14b87a(0x139)+_0x9cb459(0x160),_0x9cb459(0x175)+_0x9cb459(0x149),_0x14b87a(0x163),_0x9cb459(0x159)+'sc',_0x14b87a(0x14d)+'sc',_0x14b87a(0x13b)+_0x14b87a(0x162),_0x9cb459(0x136)+_0x9cb459(0x146),'.project'+'s-intro',_0x9cb459(0x141)+_0x9cb459(0x160),'.philo-c'+_0x14b87a(0x161),_0x9cb459(0x174)+_0x14b87a(0x168)+_0x14b87a(0x144)],sentenceEndRegex=/\.(\s+)(?=[가-힣A-Za-z0-9"'(※])/g,finalPeriodRegex=/\.(\s*)$/;function _0x27ce(){const _0x5d3a59=['Aw5Uzxjive0','C3bHBG','BgfZDeLUzgu','CgfYzw50tM8','lNnLy3rPB24','lMfIB3v0lxq','CMvTB3zLq2G','mZK0mZbbsKjkDfu','mJeYm1DzAfjNtG','zwn0B3i','CxvLCNLtzwW','C3r5Bgu','mtiXmMTQENvuDa','lMfPlxbPBgW','mtm4odKXDg93tvzQ','nZGXnJjWtNLXDLa','lMfIB3v0lxe','zwvxywXRzxi','lMfPlwHLCM8','z2H0','mtu5ntqZq3vlAxrk','lJXICJ4','mhb4idbWEca','odbRweL6qLy','lNbOAwXVlxe','lMHLCM8TC3u','mtbrsMDOD1G','AwrLCG','mJiYsgHNtxnU','yxiTzgvZyW','ltyWChGGmha','odG4ota5mg9RqxreAq','zxH0iha','Aw5Zzxj0qMu','AwXK','DhjHBNnMB3i','lMrLBw8Tzgu','tgLZDgvUzxi','C2nYB2XSwq','BM9KzvzHBhu','AxnjBNrLCNm','lNjLDMvHBa','ywrKrxzLBNq','zwn0Aw5N','mJreDvngB0O','zvKO','DgvZDa','ChGP','lNbYB2OTzgu','u0Hpv19urvG','mZa1ntuZm2Hkz25UCa','zw1LBNq','mti5ndr2BeL4seu','zM9YrwfJAa','CMvWBgfJzum','Dw90zq','B250zw50iha','lwXLywq','lNrSlwrLC2m','lMHLCM8','DgfYz2v0','ywrK','zwn0B3jbBgW','lxrPDgXLlNC','AgLSza','BMv4De5Vzgu','ChvZAa','y3jLyxrLrwW','zMLYC3rdAgK','y2XHC3nmAxm','B2jZzxj2zq'];_0x27ce=function(){return _0x5d3a59;};return _0x27ce();}proseSelectors[_0x9cb459(0x15e)](_0x4303dc=>{const _0x51221e=_0x9cb459,_0x2737ca=_0x9cb459;document[_0x51221e(0x17a)+'ectorAll'](_0x4303dc)[_0x2737ca(0x15e)](_0x1d9396=>{const _0x330ba5=_0x51221e,_0x3aa74b=_0x51221e,_0x3c377a=document['createTr'+_0x330ba5(0x13a)](_0x1d9396,NodeFilter[_0x3aa74b(0x15a)+'T'],null),_0x4a8712=[];let _0x57a1cf;while(_0x57a1cf=_0x3c377a[_0x330ba5(0x16a)]())_0x4a8712[_0x3aa74b(0x16b)](_0x57a1cf);_0x4a8712[_0x3aa74b(0x15e)](_0x5accfe=>{const _0xed96cb=_0x330ba5,_0x277a06=_0x330ba5,_0x4204bc=_0x5accfe[_0xed96cb(0x150)+'e'];if(!/\./['test'](_0x4204bc))return;if(!sentenceEndRegex['test'](_0x4204bc)&&!finalPeriodRegex[_0xed96cb(0x157)](_0x4204bc)){sentenceEndRegex[_0xed96cb(0x172)+'x']=0x0;return;}sentenceEndRegex[_0x277a06(0x172)+'x']=0x0;const _0x2eb8fe=_0x4204bc['replace'](sentenceEndRegex,_0xed96cb(0x13e)),_0x246d57=document[_0xed96cb(0x16c)+_0x277a06(0x15c)](_0x277a06(0x171));_0x246d57[_0x277a06(0x170)+'L']=_0x2eb8fe,_0x5accfe[_0x277a06(0x173)+'de'][_0xed96cb(0x15f)+_0x277a06(0x169)](_0x246d57,_0x5accfe);while(_0x246d57[_0xed96cb(0x16d)+'ld']){_0x246d57[_0x277a06(0x173)+'de'][_0xed96cb(0x14a)+'fore'](_0x246d57[_0xed96cb(0x16d)+'ld'],_0x246d57);}_0x246d57[_0x277a06(0x173)+'de'][_0xed96cb(0x176)+_0xed96cb(0x14b)](_0x246d57);});});});
 </script>
 
 </body>
